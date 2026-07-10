@@ -6,7 +6,7 @@ import AdminDashboardPage from "../pages/admin/AdminDashboardPage.jsx";
 import LoginPage from "../pages/auth/LoginPage.jsx";
 import RegisterPage from "../pages/auth/RegisterPage.jsx";
 import NotFoundPage from "../pages/NotFoundPage.jsx";
-import ShopperDashboardPage from "../pages/user/ShopperDashboardPage.jsx";
+
 
 const AppRoutes = () => {
   return (
@@ -24,14 +24,14 @@ const AppRoutes = () => {
         }
       />
 
-      <Route
+      {/* <Route
         path="/shop"
         element={
           <ProtectedRoute allowedRoles={[ROLES.ADMIN, ROLES.SHOPPER]}>
             <ShopperDashboardPage />
           </ProtectedRoute>
         }
-      />
+      /> */}
 
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
