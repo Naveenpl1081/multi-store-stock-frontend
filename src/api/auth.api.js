@@ -14,5 +14,6 @@ export const loginRequest = async ({ email, password }) => {
     email,
     password,
   });
-  return response.data;
+  console.log("s",response)
+  return response.data.data;
 };

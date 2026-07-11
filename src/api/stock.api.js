@@ -6,7 +6,7 @@ export const getStockRequest = async ({ threshold } = {}) => {
     params.threshold = threshold;
   }
   const response = await axiosInstance.get("api/stock", { params });
-  return response.data;
+  return response.data.data;
 };
 
 export const adjustStockRequest = async ({ productId, storeId, delta }) => {
@@ -15,7 +15,7 @@ export const adjustStockRequest = async ({ productId, storeId, delta }) => {
     storeId,
     delta,
   });
-  return response.data;
+  return response.data.data;
 };
 
 export const transferStockRequest = async ({
@@ -30,5 +30,5 @@ export const transferStockRequest = async ({
     toStoreId,
     quantity,
   });
-  return response.data;
+  return response.data.data;
 };

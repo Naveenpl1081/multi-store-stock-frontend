@@ -4,9 +4,6 @@ import LoginForm from "../../components/auth/LoginForm";
 import { ROLES } from "../../constants/roles";
 import { useAuth } from "../../context/AuthContext";
 
-
-
-
 const LoginPage = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
