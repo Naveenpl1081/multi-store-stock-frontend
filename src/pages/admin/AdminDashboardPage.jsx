@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { toast } from "react-hot-toast";
 import { createProductRequest, getProductsRequest } from "../../api/product.api";
 import { adjustStockRequest, getStockRequest, transferStockRequest } from "../../api/stock.api";
 import { createStoreRequest, getStoresRequest } from "../../api/store.api";
@@ -47,6 +48,7 @@ const AdminDashboardPage = () => {
     try {
       await createProductRequest({ name, sku });
       await loadAll();
+      toast.success(`Product "${name}" added successfully`);
     } catch (err) {
       setProductError(err.response?.data?.error?.message || "Failed to create product");
     } finally {
@@ -60,6 +62,7 @@ const AdminDashboardPage = () => {
     try {
       await createStoreRequest({ name });
       await loadAll();
+      toast.success(`Store "${name}" added successfully`);
     } catch (err) {
       setStoreError(err.response?.data?.error?.message || "Failed to create store");
     } finally {
@@ -73,6 +76,7 @@ const AdminDashboardPage = () => {
     try {
       await adjustStockRequest({ productId, storeId, delta });
       await loadAll();
+      toast.success(`Stock adjest is succefull`);
     } catch (err) {
       setAdjustError(err.response?.data?.error?.message || "Failed to adjust stock");
     } finally {
@@ -86,6 +90,7 @@ const AdminDashboardPage = () => {
     try {
       await transferStockRequest({ productId, fromStoreId, toStoreId, quantity });
       await loadAll();
+      toast.success(`Stock transfer is completed`);
     } catch (err) {
       setTransferError(err.response?.data?.error?.message || "Failed to transfer stock");
     } finally {

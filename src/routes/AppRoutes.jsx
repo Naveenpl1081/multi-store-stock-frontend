@@ -7,10 +7,13 @@ import LoginPage from "../pages/auth/LoginPage.jsx";
 import RegisterPage from "../pages/auth/RegisterPage.jsx";
 import NotFoundPage from "../pages/NotFoundPage.jsx";
 import ShopperDashboardPage from "../pages/user/ShopperDashboardPage.jsx";
+import { Toaster } from "react-hot-toast";
 
 
 const AppRoutes = () => {
   return (
+    <>
+   <Toaster position="top-right" reverseOrder={false} />
     <Routes>
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<LoginPage />} />
@@ -36,6 +39,7 @@ const AppRoutes = () => {
 
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
+    </>
   );
 };
 
